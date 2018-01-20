@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+
+  "globals": {
+
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "plugins": [
+    "react"
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+
+  "rules": {
+    // overrides
+    "no-multiple-empty-lines": ["error", {"max": 2}]
+  }
+}
