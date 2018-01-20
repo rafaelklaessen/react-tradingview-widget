@@ -101,9 +101,7 @@ export default class TradingViewWidget extends Component {
     hideideas: true
   };
 
-  componentDidMount = () => {
-    this.appendScript(this.initWidget);
-  };
+  componentDidMount = () => this.appendScript(this.initWidget);
 
   appendScript = (onload) => {
     if (this.scriptExists()) {

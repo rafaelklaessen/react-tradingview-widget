@@ -1,5 +1,4 @@
 node_modules
-dist
-examples
 coverage
 .DS_Store
+dist

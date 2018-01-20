@@ -1,3 +1,14 @@
+# Version 1.2.0
+Released 2018-01-21
+
+- Added description to `package.json`
+- Refactored some little things
+- Removed unnecessary jest config
+- Removed unused dependencies
+- Made tests work again by adding `react` and `react-dom` as devDependencies
+- Updated outdated dependencies
+- Added `babel-core` devDependency to remove warnings
+
 # Version 1.1.2
 Released 2018-01-20
 

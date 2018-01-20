@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TradingViewWidget, { IntervalTypes, Themes, BarStyles } from 'index';
+import TradingViewWidget, { IntervalTypes, Themes, BarStyles } from './index';
 
 describe('<TradingViewWidget />', () => {
   it('renders without crashing', () => {
