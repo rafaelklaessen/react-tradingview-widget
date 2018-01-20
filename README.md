@@ -1,5 +1,5 @@
 # react-tradingview-widget
-React component for rendering [TradingView Advanced Real-Time Chart Widget](https://www.tradingview.com/widget/advanced-chart/).
+React component for rendering the [TradingView Advanced Real-Time Chart Widget](https://www.tradingview.com/widget/advanced-chart/).
 
 ## Install
 `yarn add react-tradingview-widget`

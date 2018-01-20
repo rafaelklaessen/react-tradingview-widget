@@ -1,3 +1,10 @@
+# Version 1.1.1
+Released 2018-01-20
+
+- Added LICENSE file
+- Fixed typo in README
+- The widget now renders inside an `article` element instead of a `div` element
+
 # Version 1.1.0
 Released 2018-01-20
 

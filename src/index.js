@@ -146,5 +146,5 @@ export default class TradingViewWidget extends Component {
     new TradingView[widgetType](config);
   };
 
-  render = () => <div id="widget-container" />;
+  render = () => <article id="widget-container" />;
 }
