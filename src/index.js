@@ -1,38 +1,104 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+export const IntervalTypes = {
+  D: 'D',
+  W: 'W'
+};
+
+export const Themes = {
+  LIGHT: 'Light',
+  DARK: 'Dark'
+};
+
+export const BarStyles = {
+  BARS: '0',
+  CANDLES: '1',
+  HOLLOW_CANDLES: '9',
+  HEIKIN_ASHI: '8',
+  LINE: '2',
+  AREA: '3',
+  RENKO: '4',
+  LINE_BREAK: '7',
+  KAGI: '5',
+  POINT_AND_FIGURE: '6'
+};
+
 export default class TradingViewWidget extends Component {
   static propTypes = {
     widgetType: PropTypes.string,
     width: PropTypes.number,
     height: PropTypes.number,
+    autosize: PropTypes.bool,
     symbol: PropTypes.string.isRequired,
-    interval: PropTypes.string,
+    interval: PropTypes.oneOf([
+      1,
+      3,
+      5,
+      15,
+      30,
+      60,
+      120,
+      180,
+      '1',
+      '3',
+      '5',
+      '15',
+      '30',
+      '60',
+      '120',
+      '180',
+      IntervalTypes.D,
+      IntervalTypes.W
+    ]),
     timezone: PropTypes.string,
-    theme: PropTypes.string,
-    style: PropTypes.string,
+    theme: PropTypes.oneOf([Themes.LIGHT, Themes.DARK]),
+    style: PropTypes.oneOf([
+      BarStyles.BARS,
+      BarStyles.CANDLES,
+      BarStyles.HOLLOW_CANDLES,
+      BarStyles.HEIKIN_ASHI,
+      BarStyles.LINE,
+      BarStyles.AREA,
+      BarStyles.RENKO,
+      BarStyles.LINE_BREAK,
+      BarStyles.KAGI,
+      BarStyles.POINT_AND_FIGURE
+    ]),
     locale: PropTypes.string,
     toolbar_bg: PropTypes.string,
     enable_publishing: PropTypes.bool,
     allow_symbol_change: PropTypes.bool,
+    withdateranges: PropTypes.bool,
+    hide_side_toolbar: PropTypes.bool,
     hideideas: PropTypes.bool,
-    autosize: PropTypes.bool
+    watchlist: PropTypes.arrayOf(PropTypes.string),
+    details: PropTypes.bool,
+    hotlist: PropTypes.bool,
+    calendar: PropTypes.bool,
+    news: PropTypes.arrayOf(PropTypes.string),
+    studies: PropTypes.arrayOf(PropTypes.string),
+    show_popup_button: PropTypes.bool,
+    popup_width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    popup_height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    no_referral_id: PropTypes.bool,
+    referral_id: PropTypes.string
   };
 
   static defaultProps = {
     widgetType: 'widget',
     width: 980,
     height: 610,
-    interval: 'D',
+    autosize: false,
+    interval: IntervalTypes.D,
     timezone: 'Etc/UTC',
-    theme: 'Light',
-    style: '1',
+    theme: Themes.LIGHT,
+    style: BarStyles.CANDLES,
     locale: 'en',
     toolbar_bg: '#F1F3F6',
     enable_publishing: false,
     allow_symbol_change: true,
-    hideideas: true,
-    autosize: false
+    hideideas: true
   };
 
   componentDidMount = () => {
@@ -58,10 +124,24 @@ export default class TradingViewWidget extends Component {
   initWidget = () => {
     const { widgetType, ...widgetConfig } = this.props;
     const config = { ...widgetConfig, container_id: 'widget-container'};
+
     if (config.autosize) {
       delete config.width;
       delete config.height;
     }
+
+    if (typeof config.interval === 'number') {
+      config.interval = config.interval.toString();
+    }
+
+    if (config.popup_width && typeof config.popup_width === 'number') {
+      config.popup_width = config.popup_width.toString();
+    }
+
+    if (config.popup_height && typeof config.popup_height === 'number') {
+      config.popup_height = config.popup_height.toString();
+    }
+
     /* global TradingView */
     new TradingView[widgetType](config);
   };
