@@ -15,7 +15,8 @@ export default class TradingViewWidget extends Component {
     toolbar_bg: PropTypes.string,
     enable_publishing: PropTypes.bool,
     allow_symbol_change: PropTypes.bool,
-    hideideas: PropTypes.bool
+    hideideas: PropTypes.bool,
+    autosize: PropTypes.bool
   };
 
   static defaultProps = {
@@ -30,7 +31,8 @@ export default class TradingViewWidget extends Component {
     toolbar_bg: '#F1F3F6',
     enable_publishing: false,
     allow_symbol_change: true,
-    hideideas: true
+    hideideas: true,
+    autosize: false
   };
 
   componentDidMount = () => {
@@ -56,6 +58,10 @@ export default class TradingViewWidget extends Component {
   initWidget = () => {
     const { widgetType, ...widgetConfig } = this.props;
     const config = { ...widgetConfig, container_id: 'widget-container'};
+    if (config.autosize) {
+      delete config.width;
+      delete config.height;
+    }
     /* global TradingView */
     new TradingView[widgetType](config);
   };
