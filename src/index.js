@@ -123,7 +123,7 @@ export default class TradingViewWidget extends Component {
 
   initWidget = () => {
     const { widgetType, ...widgetConfig } = this.props;
-    const config = { ...widgetConfig, container_id: 'widget-container'};
+    const config = { ...widgetConfig, container_id: 'widget-container' };
 
     if (config.autosize) {
       delete config.width;

@@ -1,3 +1,8 @@
+# Version 1.1.2
+Released 2018-01-20
+
+- Fixed indenting mistake
+
 # Version 1.1.1
 Released 2018-01-20
 
