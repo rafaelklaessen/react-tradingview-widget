@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 export const IntervalTypes = {
@@ -27,7 +27,7 @@ export const BarStyles = {
 const SCRIPT_ID = 'tradingview-widget-script';
 const CONTAINER_ID = 'tradingview-widget';
 
-export default class TradingViewWidget extends Component {
+export default class TradingViewWidget extends PureComponent {
   static propTypes = {
     widgetType: PropTypes.string,
     width: PropTypes.number,

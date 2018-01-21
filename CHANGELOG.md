@@ -1,3 +1,8 @@
+# Version 1.2.2
+Released 2018-01-21
+
+- Switched from `Component` to `PureComponent` so that the widget doesn't rerender when the props didn't change
+
 # Version 1.2.1
 Released 2018-01-21
 
