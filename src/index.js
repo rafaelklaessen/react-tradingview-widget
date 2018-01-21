@@ -101,6 +101,8 @@ export default class TradingViewWidget extends Component {
     hideideas: true
   };
 
+  state = { containerStyle: {} };
+
   componentDidMount = () => this.appendScript(this.initWidget);
 
   componentDidUpdate = () => {
@@ -131,6 +133,9 @@ export default class TradingViewWidget extends Component {
     if (config.autosize) {
       delete config.width;
       delete config.height;
+      const container = document.getElementById('widget-container');
+      container.style.width = '100%';
+      container.style.height = '100%';
     }
 
     if (typeof config.interval === 'number') {
