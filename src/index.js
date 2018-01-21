@@ -103,6 +103,11 @@ export default class TradingViewWidget extends Component {
 
   componentDidMount = () => this.appendScript(this.initWidget);
 
+  componentDidUpdate = () => {
+    this.cleanWidget();
+    this.initWidget();
+  };
+
   appendScript = (onload) => {
     if (this.scriptExists()) {
       onload();
@@ -142,6 +147,10 @@ export default class TradingViewWidget extends Component {
 
     /* global TradingView */
     new TradingView[widgetType](config);
+  };
+
+  cleanWidget = () => {
+    document.getElementById('widget-container').innerHTML = '';
   };
 
   render = () => <article id="widget-container" />;
