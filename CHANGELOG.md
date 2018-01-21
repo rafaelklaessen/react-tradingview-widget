@@ -1,3 +1,10 @@
+# Version 1.2.1
+Released 2018-01-21
+
+- Fixed component not rerendering when props changed
+- The widget container now has a width and height of `100%` when the autosize prop is true
+- Changed script element and container element IDs
+
 # Version 1.2.0
 Released 2018-01-21
 

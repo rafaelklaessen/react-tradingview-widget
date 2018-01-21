@@ -24,6 +24,9 @@ export const BarStyles = {
   POINT_AND_FIGURE: '6'
 };
 
+const SCRIPT_ID = 'tradingview-widget-script';
+const CONTAINER_ID = 'tradingview-widget';
+
 export default class TradingViewWidget extends Component {
   static propTypes = {
     widgetType: PropTypes.string,
@@ -116,7 +119,7 @@ export default class TradingViewWidget extends Component {
       return;
     }
     const script = document.createElement('script');
-    script.id = 'widget-script';
+    script.id = SCRIPT_ID;
     script.type = 'text/javascript';
     script.async = true;
     script.src = 'https://s3.tradingview.com/tv.js';
@@ -124,16 +127,17 @@ export default class TradingViewWidget extends Component {
     document.getElementsByTagName('head')[0].appendChild(script);
   };
 
-  scriptExists = () => document.getElementById('widget-script') !== null;
+  scriptExists = () =>
+    document.getElementById(SCRIPT_ID) !== null;
 
   initWidget = () => {
     const { widgetType, ...widgetConfig } = this.props;
-    const config = { ...widgetConfig, container_id: 'widget-container' };
+    const config = { ...widgetConfig, container_id: CONTAINER_ID };
 
     if (config.autosize) {
       delete config.width;
       delete config.height;
-      const container = document.getElementById('widget-container');
+      const container = document.getElementById(CONTAINER_ID);
       container.style.width = '100%';
       container.style.height = '100%';
     }
@@ -155,8 +159,8 @@ export default class TradingViewWidget extends Component {
   };
 
   cleanWidget = () => {
-    document.getElementById('widget-container').innerHTML = '';
+    document.getElementById(CONTAINER_ID).innerHTML = '';
   };
 
-  render = () => <article id="widget-container" />;
+  render = () => <article id={CONTAINER_ID} />;
 }
