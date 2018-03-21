@@ -1,3 +1,8 @@
+# Version 1.2.3
+Released 2018-03-21
+
+- Fixed a bug that caused the component to break when multiple instances were created
+
 # Version 1.2.2
 Released 2018-01-21
 
