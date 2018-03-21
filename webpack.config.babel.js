@@ -26,7 +26,7 @@ export default () => ({
             loader: 'babel-loader',
             options: {
               babelrc: false,
-              presets: [['es2015', { modules: false }], 'react', 'stage-0']
+              presets: [['env', { modules: false }], 'react', 'stage-0']
             }
           }
         ]
@@ -38,8 +38,8 @@ export default () => ({
     // Clean dist folder
     new CleanWebpackPlugin(['dist/*.*']),
 
-    //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
-    //https://medium.com/@adamrackis/vendor-and-code-splitting-in-webpack-2-6376358f1923
+    // CommonChunksPlugin will now extract all the common modules from vendor and main bundles
+    // https://medium.com/@adamrackis/vendor-and-code-splitting-in-webpack-2-6376358f1923
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks(module) {
