@@ -104,7 +104,7 @@ export default class TradingViewWidget extends PureComponent {
     hideideas: true
   };
 
-  state = { containerStyle: {} };
+  containerId = `${CONTAINER_ID}-${Math.random()}`;
 
   componentDidMount = () => this.appendScript(this.initWidget);
 
@@ -115,6 +115,11 @@ export default class TradingViewWidget extends PureComponent {
 
   appendScript = (onload) => {
     if (this.scriptExists()) {
+      /* global TradingView */
+      if (typeof TradingView === 'undefined') {
+        this.updateOnloadListener(onload);
+        return;
+      }
       onload();
       return;
     }
@@ -127,17 +132,32 @@ export default class TradingViewWidget extends PureComponent {
     document.getElementsByTagName('head')[0].appendChild(script);
   };
 
+  getScriptElement = () =>
+    document.getElementById(SCRIPT_ID);
+
   scriptExists = () =>
-    document.getElementById(SCRIPT_ID) !== null;
+    this.getScriptElement() !== null;
+
+  updateOnloadListener = (onload) => {
+    const script = this.getScriptElement();
+    const oldOnload = script.onload;
+    return script.onload = () => {
+      oldOnload();
+      onload();
+    };
+  };
 
   initWidget = () => {
+    /* global TradingView */
+    if (typeof TradingView === 'undefined') return;
+
     const { widgetType, ...widgetConfig } = this.props;
-    const config = { ...widgetConfig, container_id: CONTAINER_ID };
+    const config = { ...widgetConfig, container_id: this.containerId };
 
     if (config.autosize) {
       delete config.width;
       delete config.height;
-      const container = document.getElementById(CONTAINER_ID);
+      const container = document.getElementById(this.containerId);
       container.style.width = '100%';
       container.style.height = '100%';
     }
@@ -159,8 +179,8 @@ export default class TradingViewWidget extends PureComponent {
   };
 
   cleanWidget = () => {
-    document.getElementById(CONTAINER_ID).innerHTML = '';
+    document.getElementById(this.containerId).innerHTML = '';
   };
 
-  render = () => <article id={CONTAINER_ID} />;
+  render = () => <article id={this.containerId} />;
 }
