@@ -1,7 +1,7 @@
 # Version 1.2.4
 Released 2018-04-13
 
-- Fixed server-side rendering not working
+- Fixed Server-Side Rendering not working
 
 # Version 1.2.3
 Released 2018-03-21
