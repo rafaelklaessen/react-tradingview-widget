@@ -113,7 +113,18 @@ export default class TradingViewWidget extends PureComponent {
     this.initWidget();
   };
 
+  canUseDOM = () => !!(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+  );
+
   appendScript = (onload) => {
+    if (!this.canUseDOM()) {
+      onload();
+      return;
+    }
+
     if (this.scriptExists()) {
       /* global TradingView */
       if (typeof TradingView === 'undefined') {
@@ -157,9 +168,6 @@ export default class TradingViewWidget extends PureComponent {
     if (config.autosize) {
       delete config.width;
       delete config.height;
-      const container = document.getElementById(this.containerId);
-      container.style.width = '100%';
-      container.style.height = '100%';
     }
 
     if (typeof config.interval === 'number') {
@@ -179,8 +187,17 @@ export default class TradingViewWidget extends PureComponent {
   };
 
   cleanWidget = () => {
+    if (!this.canUseDOM()) return;
     document.getElementById(this.containerId).innerHTML = '';
   };
 
-  render = () => <article id={this.containerId} />;
+  getStyle = () => {
+    if (!this.props.autosize) return {};
+    return {
+      width: '100%',
+      height: '100%'
+    };
+  };
+
+  render = () => <article id={this.containerId} style={this.getStyle()} />
 }
