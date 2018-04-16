@@ -10,4 +10,4 @@ if (typeof webpackJsonpreact_tradingview_widget === 'undefined') {
 }
 
 require('./dist/vendor');
-module.exports = require('./dist/index').default;
+module.exports = require('./dist/index');

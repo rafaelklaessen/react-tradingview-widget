@@ -1,3 +1,8 @@
+# Version 1.2.5
+Released 2018-04-16
+
+- Fixed constants not being exported
+
 # Version 1.2.4
 Released 2018-04-13
 
