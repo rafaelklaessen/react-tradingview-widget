@@ -35,6 +35,7 @@ const App = () => (
 ## Constants and API differences
 react-tradingview-widget exports constants for the following things:
 - Interval types: `IntervalTypes.D` and `IntervalTypes.W`
+- Range types (for the `range` prop): `RangeTypes.YTD` and `RangeTypes.ALL`
 - Themes: `Themes.LIGHT` and `Themes.DARK`
 - BarStyles:
   - `BarStyles.BARS`

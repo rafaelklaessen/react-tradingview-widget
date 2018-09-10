@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TradingViewWidget, { IntervalTypes, Themes, BarStyles } from './index';
+import TradingViewWidget, {
+  BarStyles,
+  IntervalTypes,
+  RangeTypes,
+  Themes
+} from './index';
 
 describe('<TradingViewWidget />', () => {
   it('renders without crashing', () => {
@@ -9,8 +14,9 @@ describe('<TradingViewWidget />', () => {
   });
 
   it('exports constants', () => {
-    expect(typeof IntervalTypes).toBe('object');
-    expect(typeof Themes).toBe('object');
     expect(typeof BarStyles).toBe('object');
+    expect(typeof IntervalTypes).toBe('object');
+    expect(typeof RangeTypes).toBe('object');
+    expect(typeof Themes).toBe('object');
   });
 });
