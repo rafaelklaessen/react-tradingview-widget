@@ -2,6 +2,7 @@
 Released 2018-09-10
 
 - Added prop-types for newly added props
+- Added `RangeTypes` constants
 - Reordered props
 
 # Version 1.2.5
