@@ -1,3 +1,9 @@
+# Version 1.3.0
+Released 2018-09-10
+
+- Added prop-types for newly added props
+- Reordered props
+
 # Version 1.2.5
 Released 2018-04-16
 
