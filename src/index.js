@@ -6,6 +6,11 @@ export const IntervalTypes = {
   W: 'W'
 };
 
+export const RangeTypes = {
+  YTD: 'ytd',
+  ALL: 'all'
+};
+
 export const Themes = {
   LIGHT: 'Light',
   DARK: 'Dark'
@@ -72,8 +77,11 @@ export default class TradingViewWidget extends PureComponent {
     toolbar_bg: PropTypes.string,
     enable_publishing: PropTypes.bool,
     allow_symbol_change: PropTypes.bool,
-    withdateranges: PropTypes.bool,
+    hide_top_toolbar: PropTypes.bool,
+    hide_legend: PropTypes.bool,
     hide_side_toolbar: PropTypes.bool,
+    withdateranges: PropTypes.bool,
+    save_image: PropTypes.bool,
     hideideas: PropTypes.bool,
     watchlist: PropTypes.arrayOf(PropTypes.string),
     details: PropTypes.bool,
@@ -81,6 +89,17 @@ export default class TradingViewWidget extends PureComponent {
     calendar: PropTypes.bool,
     news: PropTypes.arrayOf(PropTypes.string),
     studies: PropTypes.arrayOf(PropTypes.string),
+    range: PropTypes.oneOf([
+      '1d',
+      '5d',
+      '1m',
+      '3m',
+      '6m',
+      RangeTypes.YTD,
+      '12m',
+      '60m',
+      RangeTypes.ALL
+    ]),
     show_popup_button: PropTypes.bool,
     popup_width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     popup_height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -100,6 +119,7 @@ export default class TradingViewWidget extends PureComponent {
     locale: 'en',
     toolbar_bg: '#F1F3F6',
     enable_publishing: false,
+    save_image: true,
     allow_symbol_change: true,
     hideideas: true
   };
