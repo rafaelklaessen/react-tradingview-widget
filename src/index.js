@@ -185,7 +185,7 @@ export default class TradingViewWidget extends PureComponent {
 
   initWidget = () => {
     /* global TradingView */
-    if (typeof TradingView === 'undefined') return;
+    if (typeof TradingView === 'undefined' || !document.getElementById(this.containerId)) return;
 
     const { widgetType, ...widgetConfig } = this.props;
     const config = { ...widgetConfig, container_id: this.containerId };
