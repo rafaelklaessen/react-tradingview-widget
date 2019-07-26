@@ -1,3 +1,8 @@
+# Version 1.3.1
+Released 2019-07-26
+
+- Prevent undesirable full-screen chart when the component is unmounted before the chart is rendered. Thanks [AurelReb](https://github.com/AurelReb)!
+
 # Version 1.3.0
 Released 2018-09-10
 
