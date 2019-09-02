@@ -81,6 +81,7 @@ var TradingViewIndicesWidget = function (_PureComponent) {
       script.async = true;
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
       script.onload = onload;
+      script.innerHTML = JSON.stringify(_extends({}, defaultProps, _this.props));
 
       document.getElementsByTagName("head")[0].appendChild(script);
     }, _this.getScriptElement = function () {

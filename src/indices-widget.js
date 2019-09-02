@@ -155,6 +155,7 @@ export class TradingViewIndicesWidget extends PureComponent {
     script.src =
       "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
     script.onload = onload
+    script.innerHTML = JSON.stringify({ ...defaultProps, ...this.props })
 
     document.getElementsByTagName("head")[0].appendChild(script)
   }
