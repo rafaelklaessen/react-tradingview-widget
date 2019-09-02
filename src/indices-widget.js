@@ -116,7 +116,7 @@ export class TradingViewIndicesWidget extends PureComponent {
 
   containerId = `${CONTAINER_ID}-${Math.random()}`
 
-  componentDidMount = () => setTimeout(this.appendScript, 1000)
+  componentDidMount = () => setTimeout(this.appendScript, 100)
 
   appendScript = () => {
     const script = document.createElement("script")
