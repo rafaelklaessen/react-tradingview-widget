@@ -116,7 +116,7 @@ export class TradingViewIndicesWidget extends PureComponent {
 
   containerId = `${CONTAINER_ID}-${Math.random()}`
 
-  componentDidMount = () => this.appendScript()
+  componentDidMount = () => setTimeout(this.appendScript, 1000)
 
   appendScript = () => {
     const script = document.createElement("script")
@@ -132,7 +132,7 @@ export class TradingViewIndicesWidget extends PureComponent {
       ...this.props
     })
 
-    document.getElementsByTagName("head")[0].appendChild(script)
+    document.getElementById(this.containerId).appendChild(script)
   }
 
   getStyle = () => {
@@ -144,8 +144,6 @@ export class TradingViewIndicesWidget extends PureComponent {
   }
 
   render = () => (
-    <article id={this.containerId} style={this.getStyle()}>
-      {this.appendScript()}
-    </article>
+    <article id={this.containerId} style={this.getStyle()}></article>
   )
 }

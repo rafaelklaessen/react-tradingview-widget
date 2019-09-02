@@ -50,7 +50,7 @@ var TradingViewIndicesWidget = function (_PureComponent) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TradingViewIndicesWidget.__proto__ || Object.getPrototypeOf(TradingViewIndicesWidget)).call.apply(_ref, [this].concat(args))), _this), _this.containerId = CONTAINER_ID + "-" + Math.random(), _this.componentDidMount = function () {
-      return _this.appendScript();
+      return setTimeout(_this.appendScript, 1000);
     }, _this.appendScript = function () {
       var script = document.createElement("script");
 
@@ -61,7 +61,7 @@ var TradingViewIndicesWidget = function (_PureComponent) {
       script.onload = onload;
       script.innerHTML = JSON.stringify(_extends({}, TradingViewIndicesWidget.defaultProps, _this.props));
 
-      document.getElementsByTagName("head")[0].appendChild(script);
+      document.getElementById(_this.containerId).appendChild(script);
     }, _this.getStyle = function () {
       if (!_this.props.autosize) return {};
       return {
@@ -69,11 +69,7 @@ var TradingViewIndicesWidget = function (_PureComponent) {
         height: "100%"
       };
     }, _this.render = function () {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "article",
-        { id: _this.containerId, style: _this.getStyle() },
-        _this.appendScript()
-      );
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("article", { id: _this.containerId, style: _this.getStyle() });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
