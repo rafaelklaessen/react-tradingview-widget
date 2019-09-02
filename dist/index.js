@@ -158,14 +158,14 @@ TradingViewIndicesWidget.propTypes = {
   tabs: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array
 };
 TradingViewIndicesWidget.defaultProps = {
-  colorTheme: "light",
+  colorTheme: "Light",
   dateRange: "12m",
   showChart: true,
   locale: "en",
   largeChartUrl: "",
   isTransparent: false,
-  width: "400",
-  height: "660",
+  width: 400,
+  height: 660,
   plotLineColorGrowing: "rgba(33, 150, 243, 1)",
   plotLineColorFalling: "rgba(33, 150, 243, 1)",
   gridLineColor: "rgba(233, 233, 234, 1)",
