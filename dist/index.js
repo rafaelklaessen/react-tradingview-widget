@@ -164,7 +164,7 @@ TradingViewIndicesWidget.defaultProps = {
   isTransparent: false,
   width: 400,
   height: 660,
-  style: BarStyles.AREA,
+  style: __WEBPACK_IMPORTED_MODULE_2__types__["a" /* BarStyles */].AREA,
   plotLineColorGrowing: "rgba(33, 150, 243, 1)",
   plotLineColorFalling: "rgba(33, 150, 243, 1)",
   gridLineColor: "rgba(233, 233, 234, 1)",

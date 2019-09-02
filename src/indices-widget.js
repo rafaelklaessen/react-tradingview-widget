@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
-import { RangeTypes, Themes } from "./types"
+import { BarStyles, RangeTypes, Themes } from "./types"
 
 const SCRIPT_ID = "tradingview-indices-widget-script"
 const CONTAINER_ID = "tradingview-indices-widget"
