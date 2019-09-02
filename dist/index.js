@@ -146,8 +146,6 @@ TradingViewIndicesWidget.propTypes = {
   locale: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
   largeChartUrl: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
   isTransparent: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
-  width: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
-  height: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
   plotLineColorGrowing: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
   plotLineColorFalling: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
   gridLineColor: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,

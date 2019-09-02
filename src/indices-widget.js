@@ -23,8 +23,6 @@ export class TradingViewIndicesWidget extends PureComponent {
     locale: PropTypes.string,
     largeChartUrl: PropTypes.string,
     isTransparent: PropTypes.bool,
-    width: PropTypes.number,
-    height: PropTypes.number,
     plotLineColorGrowing: PropTypes.string,
     plotLineColorFalling: PropTypes.string,
     gridLineColor: PropTypes.string,
