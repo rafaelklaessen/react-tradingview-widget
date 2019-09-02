@@ -116,37 +116,9 @@ export class TradingViewIndicesWidget extends PureComponent {
 
   containerId = `${CONTAINER_ID}-${Math.random()}`
 
-  componentDidMount = () => this.appendScript(this.initWidget)
+  componentDidMount = () => this.appendScript()
 
-  componentDidUpdate = () => {
-    this.cleanWidget()
-    this.initWidget()
-  }
-
-  canUseDOM = () => {
-    !!(
-      typeof window !== "undefined" &&
-      window.document &&
-      window.document.createElement
-    )
-  }
-
-  appendScript = onload => {
-    if (!this.canUseDOM()) {
-      onload()
-      return
-    }
-
-    if (this.scriptExists()) {
-      /* global TradingView */
-      if (typeof TradingView === "undefined") {
-        this.updateOnloadListener(onload)
-        return
-      }
-      onload()
-      return
-    }
-
+  appendScript = () => {
     const script = document.createElement("script")
 
     script.id = SCRIPT_ID
@@ -155,59 +127,12 @@ export class TradingViewIndicesWidget extends PureComponent {
     script.src =
       "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
     script.onload = onload
-    script.innerHTML = JSON.stringify({ ...defaultProps, ...this.props })
+    script.innerHTML = JSON.stringify({
+      ...TradingViewIndicesWidget.defaultProps,
+      ...this.props
+    })
 
     document.getElementsByTagName("head")[0].appendChild(script)
-  }
-
-  getScriptElement = () => document.getElementById(SCRIPT_ID)
-
-  scriptExists = () => this.getScriptElement() !== null
-
-  updateOnloadListener = onload => {
-    const script = this.getScriptElement()
-    const oldOnload = script.onload
-    return (script.onload = () => {
-      oldOnload()
-      onload()
-    })
-  }
-
-  initWidget = () => {
-    /* global TradingView */
-    if (
-      typeof TradingView === "undefined" ||
-      !document.getElementById(this.containerId)
-    )
-      return
-
-    const { widgetType, ...widgetConfig } = this.props
-    const config = { ...widgetConfig, container_id: this.containerId }
-
-    if (config.autosize) {
-      delete config.width
-      delete config.height
-    }
-
-    if (typeof config.interval === "number") {
-      config.interval = config.interval.toString()
-    }
-
-    if (config.popup_width && typeof config.popup_width === "number") {
-      config.popup_width = config.popup_width.toString()
-    }
-
-    if (config.popup_height && typeof config.popup_height === "number") {
-      config.popup_height = config.popup_height.toString()
-    }
-
-    /* global TradingView */
-    new TradingView[widgetType](config)
-  }
-
-  cleanWidget = () => {
-    if (!this.canUseDOM()) return
-    document.getElementById(this.containerId).innerHTML = ""
   }
 
   getStyle = () => {
@@ -218,5 +143,9 @@ export class TradingViewIndicesWidget extends PureComponent {
     }
   }
 
-  render = () => <article id={this.containerId} style={this.getStyle()} />
+  render = () => (
+    <article id={this.containerId} style={this.getStyle()}>
+      {this.appendScript()}
+    </article>
+  )
 }
