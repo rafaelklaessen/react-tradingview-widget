@@ -9,12 +9,12 @@ import {
 } from "./index"
 
 describe("<TradingViewStockChartWidget />", () => {
-  it("renders without crashing", () => {
+  it("Renders without crashing", () => {
     const div = document.createElement("div")
     ReactDOM.render(<TradingViewStockChartWidget symbol="NASDAQ:AAPL" />, div)
   })
 
-  it("exports constants", () => {
+  it("Exports Constants", () => {
     expect(typeof BarStyles).toBe("object")
     expect(typeof IntervalTypes).toBe("object")
     expect(typeof RangeTypes).toBe("object")
