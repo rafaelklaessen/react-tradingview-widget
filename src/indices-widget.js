@@ -2,8 +2,8 @@ import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { RangeTypes, Themes } from "./types"
 
-const SCRIPT_ID = "tradingview-widget-script"
-const CONTAINER_ID = "tradingview-widget"
+const SCRIPT_ID = "tradingview-indices-widget-script"
+const CONTAINER_ID = "tradingview-indices-widget"
 
 export class TradingViewIndicesWidget extends PureComponent {
   static propTypes = {
@@ -42,6 +42,7 @@ export class TradingViewIndicesWidget extends PureComponent {
     isTransparent: false,
     width: 400,
     height: 660,
+    style: BarStyles.AREA,
     plotLineColorGrowing: "rgba(33, 150, 243, 1)",
     plotLineColorFalling: "rgba(33, 150, 243, 1)",
     gridLineColor: "rgba(233, 233, 234, 1)",

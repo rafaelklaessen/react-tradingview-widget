@@ -2,8 +2,8 @@ import React, { PureComponent } from "react"
 import PropTypes from "prop-types"
 import { BarStyles, IntervalTypes, RangeTypes, Themes } from "./types"
 
-const SCRIPT_ID = "tradingview-widget-script"
-const CONTAINER_ID = "tradingview-widget"
+const SCRIPT_ID = "tradingview-stock-chart-widget-script"
+const CONTAINER_ID = "tradingview-stock-chart-widget"
 
 export class TradingViewStockChartWidget extends PureComponent {
   static propTypes = {

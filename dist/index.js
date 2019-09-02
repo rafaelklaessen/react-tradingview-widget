@@ -34,8 +34,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var SCRIPT_ID = "tradingview-widget-script";
-var CONTAINER_ID = "tradingview-widget";
+var SCRIPT_ID = "tradingview-indices-widget-script";
+var CONTAINER_ID = "tradingview-indices-widget";
 
 var TradingViewIndicesWidget = function (_PureComponent) {
   _inherits(TradingViewIndicesWidget, _PureComponent);
@@ -164,6 +164,7 @@ TradingViewIndicesWidget.defaultProps = {
   isTransparent: false,
   width: 400,
   height: 660,
+  style: BarStyles.AREA,
   plotLineColorGrowing: "rgba(33, 150, 243, 1)",
   plotLineColorFalling: "rgba(33, 150, 243, 1)",
   gridLineColor: "rgba(233, 233, 234, 1)",
@@ -302,8 +303,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var SCRIPT_ID = "tradingview-widget-script";
-var CONTAINER_ID = "tradingview-widget";
+var SCRIPT_ID = "tradingview-stock-chart-widget-script";
+var CONTAINER_ID = "tradingview-stock-chart-widget";
 
 var TradingViewStockChartWidget = function (_PureComponent) {
   _inherits(TradingViewStockChartWidget, _PureComponent);
