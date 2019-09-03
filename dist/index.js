@@ -464,7 +464,7 @@ var TradingViewStockChartMiniWidget = function (_PureComponent) {
       script.async = true;
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
       script.onload = onload;
-      script.innerHTML = JSON.stringify(_extends({}, TradingViewIndicesWidget.defaultProps, _this.props));
+      script.innerHTML = JSON.stringify(_extends({}, TradingViewStockChartMiniWidget.defaultProps, _this.props));
 
       document.getElementById(_this.containerId).appendChild(script);
     }, _this.getStyle = function () {
@@ -555,7 +555,7 @@ var TradingViewStockInfoWidget = function (_PureComponent) {
       script.async = true;
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js";
       script.onload = onload;
-      script.innerHTML = JSON.stringify(_extends({}, TradingViewIndicesWidget.defaultProps, _this.props));
+      script.innerHTML = JSON.stringify(_extends({}, TradingViewStockInfoWidget.defaultProps, _this.props));
 
       document.getElementById(_this.containerId).appendChild(script);
     }, _this.getStyle = function () {
@@ -637,7 +637,7 @@ var TradingViewStockProfileWidget = function (_PureComponent) {
       script.async = true;
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js";
       script.onload = onload;
-      script.innerHTML = JSON.stringify(_extends({}, TradingViewIndicesWidget.defaultProps, _this.props));
+      script.innerHTML = JSON.stringify(_extends({}, TradingViewStockProfileWidget.defaultProps, _this.props));
 
       document.getElementById(_this.containerId).appendChild(script);
     }, _this.getStyle = function () {

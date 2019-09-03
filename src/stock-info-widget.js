@@ -37,7 +37,7 @@ export class TradingViewStockInfoWidget extends PureComponent {
       "https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
     script.onload = onload
     script.innerHTML = JSON.stringify({
-      ...TradingViewIndicesWidget.defaultProps,
+      ...TradingViewStockInfoWidget.defaultProps,
       ...this.props
     })
 

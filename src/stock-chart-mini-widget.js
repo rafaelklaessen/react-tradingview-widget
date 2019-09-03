@@ -56,7 +56,7 @@ export class TradingViewStockChartMiniWidget extends PureComponent {
       "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
     script.onload = onload
     script.innerHTML = JSON.stringify({
-      ...TradingViewIndicesWidget.defaultProps,
+      ...TradingViewStockChartMiniWidget.defaultProps,
       ...this.props
     })
 

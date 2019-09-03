@@ -39,7 +39,7 @@ export class TradingViewStockProfileWidget extends PureComponent {
       "https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js"
     script.onload = onload
     script.innerHTML = JSON.stringify({
-      ...TradingViewIndicesWidget.defaultProps,
+      ...TradingViewStockProfileWidget.defaultProps,
       ...this.props
     })
 
