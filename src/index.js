@@ -1,3 +1,6 @@
-export { TradingViewStockChartWidget } from "./stock-chart-widget"
 export { TradingViewIndicesWidget } from "./indices-widget"
+export { TradingViewStockChartWidget } from "./stock-chart-widget"
+export { TradingViewStockChartMiniWidget } from "./stock-chart-mini-widget"
+export { TradingViewStockInfoWidget } from "./stock-info-widget"
+export { TradingViewStockProfileWidget } from "./stock-profile-widget"
 export { BarStyles, IntervalTypes, RangeTypes, Themes } from "./types"
