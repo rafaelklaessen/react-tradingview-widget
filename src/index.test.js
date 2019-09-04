@@ -6,6 +6,7 @@ import {
   TradingViewStockChartMiniWidget,
   TradingViewStockInfoWidget,
   TradingViewStockProfileWidget,
+  TradingViewStockListWidget,
   BarStyles,
   IntervalTypes,
   RangeTypes,
@@ -53,5 +54,12 @@ describe("<TradingViewStockProfileWidget />", () => {
   it("Renders without crashing", () => {
     const div = document.createElement("div")
     ReactDOM.render(<TradingViewStockProfileWidget />, div)
+  })
+})
+
+describe("<TradingViewStockListWidget />", () => {
+  it("Renders without crashing", () => {
+    const div = document.createElement("div")
+    ReactDOM.render(<TradingViewStockListWidget />, div)
   })
 })
