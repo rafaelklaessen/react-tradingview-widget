@@ -54,6 +54,7 @@ export default class TradingViewWidget extends PureComponent {
       60,
       120,
       180,
+      240,
       '1',
       '3',
       '5',
@@ -62,6 +63,7 @@ export default class TradingViewWidget extends PureComponent {
       '60',
       '120',
       '180',
+      '240',
       IntervalTypes.D,
       IntervalTypes.W
     ]),
