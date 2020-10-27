@@ -25,3 +25,9 @@ export const Themes = {
   LIGHT: "Light",
   DARK: "Dark"
 }
+
+export const DisplayModes = {
+  REGULAR: "Regular",
+  COMPACT: "Compact",
+  ADAPTIVE: "Adaptive"
+}
